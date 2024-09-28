@@ -14,7 +14,7 @@ nav{
 }
 .container{ 
     display: flex;
-    width: 100%;
+    width: 1850;
     height: 50px;
     background-color: black;
     border: 9px solid lightgreen;
