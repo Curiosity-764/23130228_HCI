@@ -7,7 +7,7 @@
     font-family:'Poppins';
 }
 nav{
-    
+    z-index: 100;
     display: flex;
     justify-content: space-around;
     justify-items: center;
