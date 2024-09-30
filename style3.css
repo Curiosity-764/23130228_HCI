@@ -1,0 +1,81 @@
+.container a {
+    display: block;
+    padding: 13px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Poppins';
+}
+
+nav {
+    z-index: 100;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Changed from justify-items to align-items */
+}
+
+.container { 
+    display: flex;
+    width: 100%; /* Changed to 100% for responsive design */
+    max-width: 1850px; /* Added max-width to prevent overflow */
+    height: 50px;
+    background-color: black;
+    border: 9px solid lightgreen;
+    border-radius: 20px;
+    margin: 0 auto; /* Center the container */
+}
+
+body {
+    background-image: url(background2\ \(2\).png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(Poppins\ Light\ 300.ttf) /* Adjusted for escaping */
+}
+
+.container a:hover {
+    color: lightgreen;
+    transition: .8s;
+}
+
+h1 {
+    text-align: center;
+    color: lightgreen;
+}
+
+#forms {
+    max-width: 500px;
+    height: 220px;
+    border: 3px solid black;
+    margin: 0 auto; /* Center the forms */
+}
+
+label {
+    padding: 3px;
+    color: lightgreen;
+}
+
+#courseDesc {
+    padding: 3px;
+    width: 100%; /* Changed to 100% for responsiveness */
+    max-width: 450px; /* Added max-width */
+    height: 80px;
+    margin: 10px auto; /* Center the margin */
+}
+
+input {
+    width: 100%; /* Changed to 100% for responsiveness */
+    max-width: 200px; /* Added max-width */
+    color: black;
+}
+
+#submit {
+    height: 25px;
+    margin: 10px;
+    max-width: 200px;
+    background-color: black;
+    color: lightgreen;
+}

@@ -5,12 +5,14 @@
     text-decoration: none;
     font-weight: bold;
     font-family:'Poppins';
+    
 }
 nav{
     z-index: 100;
     display: flex;
     justify-content: space-around;
     justify-items: center;
+    
 }
 .container{ 
     display: flex;
@@ -19,6 +21,7 @@ nav{
     background-color: black;
     border: 9px solid lightgreen;
     border-radius: 20px;
+  
 }
 body{
     background-image: url(background2\ \(2\).png);
