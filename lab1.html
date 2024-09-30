@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+   <style>
+    table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+th, td {
+    width: 100px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: lightslategray;
+}
+th {
+    background-color: #f2f2f2;
+}
+   </style>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+</head>
+
+
+<body>
+    <link rel="stylesheet" href="style3.css">
+    <div id="wrapper">
+        <div id="header">
+            <nav class="container">
+              
+                        <a href="lab1.html">Lab1</a>
+                        <a href="">Lab2</a>
+                        <a href="">Lab3</a>
+                        <a href="">Lab4</a>                          
+                       <a href="About.html">About</a>
+                       <a href="Home.html">Home</a>
+                    
+                
+            </nav>
+        </div>
+    </div>
+</body>
+<br><br>
+<body>   
+    <h1>Course Management System</h1>
+    
+    <div id="forms">
+    <form id="courseForm">
+        
+        <label for="courseID" >Mã Khoá Học :</label>
+        <input type="text" id="courseID" placeholder="Course ID" required >
+        <br>
+        <label for="courseName">Tên khoá học :</label>
+        <input type="text" id="courseName" placeholder="Course Name" required maxlength="255">
+        <br>
+        
+        <label for="courseDesc"></label>
+        <input type="text" id="courseDesc" required maxlength="255" placeholder="Course Description">
+        <br>
+        <button type="submit" id="submit">Thêm khoá học</button>
+    </form>
+</div>
+    <table id="courseTable">
+        <thead>
+            <tr>
+                <th>Mã Khoá Học</th>
+                <th>Tên Khoá Học</th>                
+                <th>Ngày tạo</th>
+                <th>Thông tin khoá học</th>
+                <th>Action Bar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- học sinh sẽ được thêm vào ở table này -->
+        </tbody>
+    </table>
+
+  <script>
+   document.getElementById('courseForm').addEventListener('submit',function(e){
+e.preventDefault();
+// thêm chức năng nút submit
+
+const id = document.getElementById('courseID').value;
+const name = document.getElementById('courseName').value;
+const currentTime =new Date().toLocaleString();
+const desc = document.getElementById('courseDesc').value;
+const table = document.getElementById('courseTable').getElementsByTagName('tbody')[0];
+const newRow = table.insertRow();
+// thêm input từ nút submit
+newRow.innerHTML = `
+<td>${id}</td>
+<td>${name}</td>                
+<td>${currentTime}</td>
+<td>${desc}</td>
+<td><button class="removeBtn">Xoá khoá học</button></td>
+`
+document.getElementById('courseForm').reset();
+// xoá text đã bấm ở phần nhập thông tin forms
+
+// chức năng xoá sinh viên ( button xoá )
+newRow.querySelector('.removeBtn').addEventListener('click',function(){
+const deleteRow = newRow.parentNode;
+deleteRow.removeChild(newRow)
+});
+   }); 
+        </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="about.css">
+   
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <nav class="container">
+                <a href="lab1.html">Lab1</a>
+                <a href="">Lab2</a>
+                <a href="">Lab3</a>
+                <a href="">Lab4</a>
+                <a href="About.html">About</a>
+                <a href="Home.html">Home</a>
+            </nav>
+        </div>
+        <div class="myCV">
+            <h1>About Me IRL</h1>
+            <nav class="img-displayer">
+                <img src="about.png" alt="My CV" onclick="openModal(this, 0)">
+                <img src="Trip.jpg" alt="Trip 1" onclick="openModal(this, 1)">
+                <img src="Trip2.jpg" alt="Trip 2" onclick="openModal(this, 2)">
+                <img src="Trip3.jpg" alt="Trip 3" onclick="openModal(this, 3)">
+                <img src="Trip4.jpg" alt="Trip 4" onclick="openModal(this, 4)">
+                <img src="Trip5.jpg" alt="Trip 5" onclick="openModal(this, 5)">
+                <img src="School.jpg" alt="" onclick="openModal(this, 6)">
+                <img src="School1.jpg" alt="" onclick="openModal(this, 7)">
+                <img src="School2.jpg" alt="" onclick="openModal(this, 8)">
+            </nav>
+            <h1>These pictures are viewable!</h1>
+        </div>
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+            <button class="next-btn" id="nextBtn" onclick="nextImage()">Next Image</button>
+        </div>
+    </div>
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            'about.png',
+            'Trip.jpg',
+            'Trip2.jpg',
+            'Trip3.jpg',
+            'Trip4.jpg',
+            'Trip5.jpg',
+            'School.jpg',
+            'School1.jpg',
+            'School2.jpg'
+        ];
+
+        function openModal(img, index) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            const nextBtn = document.getElementById("nextBtn");
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+            currentImageIndex = index; 
+            nextBtn.style.display = "block"; 
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+            document.getElementById("nextBtn").style.display = "none"; 
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length; 
+            const modalImg = document.getElementById("img01");
+            modalImg.src = images[currentImageIndex];
+        }
+
+       
+        window.onload = function() {
+            closeModal();
+        };
+    </script>
+</body>
+</html>
+
+
