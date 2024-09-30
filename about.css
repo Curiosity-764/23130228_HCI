@@ -87,3 +87,22 @@ h1 {
     cursor: pointer;
     font-size: 16px;
 }
+@media (max-width: 768px) {
+    .myCV {
+        padding: 15px; /* Less padding on smaller screens */
+    }
+
+    .img-displayer img {
+        max-width: 120px; /* Smaller images on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .myCV {
+        padding: 10px; /* Further reduce padding */
+    }
+
+    .img-displayer img {
+        max-width: 80px; /* Even smaller images on extra small screens */
+    }
+}
