@@ -38,10 +38,31 @@
         <div id="myModal" class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="img01">
-            <button class="next-btn" id="nextBtn" onclick="nextImage()">Next Image</button>
+            <button class="prev-btn" id="prevBtn" onclick="prevImage()">    
+                <img src="back.png" alt="Previous" width="50px" height="50px" class="prev">
+            </button>
+            <button class="next-btn" id="nextBtn" onclick="nextImage()"><img src="next.png" alt="" width="50px" height="50px" class="next"></button>
+            
         </div>
     </div>
+    
+    <p>Also checkout my family's business: <a href="https://www.facebook.com/DungPhatGaming/">//www.facebook.com/DungPhatGaming/</a></p>
+    <div class="business">
+        <img src="business1.jpg" alt="" >
+        <img src="business2.jpg" alt="">
+        <img src="business3.jpg" alt="">
+        <img src="business4.jpg" alt="">
+    </div>
+    <footer>
+        <p>&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+        <p>Contact:0764753405</p>
+     
+    </footer>
+    
+    
+    
     <script>
+
         let currentImageIndex = 0;
         const images = [
             'about.png',
@@ -76,7 +97,11 @@
             const modalImg = document.getElementById("img01");
             modalImg.src = images[currentImageIndex];
         }
-
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length; 
+            const modalImg = document.getElementById("img01");
+            modalImg.src = images[currentImageIndex];
+        }
        
         window.onload = function() {
             closeModal();

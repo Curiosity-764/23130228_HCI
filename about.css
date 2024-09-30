@@ -76,14 +76,50 @@ h1 {
 }
 
 .next-btn {
-    display: none; /* Hidden by default */
+    display: none; 
     position: absolute;
-    bottom: 20px;
+    margin-top: 50px;
     right: 30px;
     background-color: white;
     color: black;
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 16px;
+    background: none;
+    background-size: cover;
+    cursor: pointer;
 }
+@media (max-width: 1000px) {
+   
+    
+    .next-btn {
+        font-size: 14px; /* Slightly smaller button text */
+        padding: 8px; /* Reduced padding */
+    }
+    
+    h1 {
+        font-size: 1.2em; /* Smaller font size */
+    }
+    
+    .img-display img {
+        max-width: 50%; /* Make images larger on mobile */
+    }
+    .myCV img {
+        flex-direction: row;
+        max-width: 50px;
+       
+    }
+}
+.prev-btn{
+   background: none;
+    background-size: cover;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 50px;
+    position: absolute;
+    left: 50px;
+
+    
+
+}
+
