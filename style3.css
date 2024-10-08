@@ -5,24 +5,26 @@
     text-decoration: none;
     font-weight: bold;
     font-family: 'Poppins';
+
 }
 
 nav {
     z-index: 100;
     display: flex;
     justify-content: space-around;
-    align-items: center; /* Changed from justify-items to align-items */
+    align-items: center; 
 }
 
 .container { 
     display: flex;
-    width: 100%; /* Changed to 100% for responsive design */
-    max-width: 1850px; /* Added max-width to prevent overflow */
+    width: 100%; 
+    max-width: 1850px;
     height: 50px;
     background-color: black;
     border: 9px solid lightgreen;
     border-radius: 20px;
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto;
+ 
 }
 
 body {
@@ -33,7 +35,7 @@ body {
 
 @font-face {
     font-family: Poppins;
-    src: url(Poppins\ Light\ 300.ttf) /* Adjusted for escaping */
+    src: url(Poppins\ Light\ 300.ttf) 
 }
 
 .container a:hover {
@@ -50,7 +52,7 @@ h1 {
     max-width: 500px;
     height: 220px;
     border: 3px solid black;
-    margin: 0 auto; /* Center the forms */
+    margin: 0 auto; 
 }
 
 label {
@@ -60,15 +62,15 @@ label {
 
 #courseDesc {
     padding: 3px;
-    width: 100%; /* Changed to 100% for responsiveness */
-    max-width: 450px; /* Added max-width */
+    width: 100%; 
+    max-width: 450px; 
     height: 80px;
-    margin: 10px auto; /* Center the margin */
+    margin: 10px auto;
 }
 
 input {
-    width: 100%; /* Changed to 100% for responsiveness */
-    max-width: 200px; /* Added max-width */
+    width: 100%; 
+    max-width: 200px; 
     color: black;
 }
 
@@ -78,4 +80,48 @@ input {
     max-width: 200px;
     background-color: black;
     color: lightgreen;
+}
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: row; 
+        height: 50px; 
+        width: 500px;
+        text-align: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container a {
+        margin: 5px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+}
+p{
+    color: lightgreen;
+    font-family:Poppins ;
+}
+p a:hover{
+    color: crimson;
+    transition: 0.5s;
+}
+p a{
+    color: lightgreen;
+}
+.business img{
+width: 400px;
+height: auto;
+}
+.business{
+    display: flex;
+    flex-direction: wrap;
+    gap: 50px;
+    margin-left: 40px;
 }

@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+  
     <style>   
         #sidebar {
-            width: 200px;
+            width: 250px;
             background-color: black;
             padding: 10px;
             position: fixed;
@@ -33,9 +40,8 @@
         }  
         #toggleButton {
             margin-left: 220px;
-            cursor: pointer;
-            margin-top: 90px;
-                   
+            
+            margin-top: 90px;     
         }
 
     </style>
@@ -52,32 +58,29 @@
                 <a href="Home.html">Home</a>
             </nav>
             <button id="toggleButton"><img src="menu.png" height="50px" width="50px" style="background-color: none;" > </button>
-        </div>
-        <div id="content">
-            
-            <!-- Main content goes here -->
-            <footer>
-                <p>&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
-                <p>Contact: 0764753405</p>
-            </footer>
-        </div>
+</div>
     </div>
 
-    <script>
-        const sidebar = document.getElementById('sidebar');
-        const toggleButton = document.getElementById('toggleButton');
+    <div id="content">
+        <textarea id="comment" name="comment" rows="30" cols="200" placeholder="Code here!" style="margin-top: 50px;"></textarea>
 
+        <!-- Main content goes here -->
+        <footer>
+            <p style="color: lightgreen;">&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+            <p style="color: lightgreen;">Contact: 0764753405</p>
+        </footer>
+    </div>
+
+    <script>const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+      
 
         // mở menu
         function toggleSidebar() {
             sidebar.classList.toggle('show');
-          
+           
         }
 
-        // chức năng
-        toggleButton.addEventListener('click', toggleSidebar);
-  
-    </script>
-
-</body>
+        // chức năng menu
+        toggleButton.addEventListener('click', toggleSidebar);</script>
 </html>

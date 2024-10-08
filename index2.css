@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    background:url(background2\ \(2\).png);
+    color: lightgreen;
+}
+
+#wrapper {
+    display: flex;
+}
+
+#sidebar {
+    width: 200px;
+    height: 100vh; 
+    position: fixed;
+    background-color: black;
+    border: 15px solid lightgreen;
+    border-radius: 15px;
+}
+
+nav.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; /* Add some padding */
+}
+
+nav.container a {
+    color:white; 
+    text-decoration: none; /* Remove underline */
+    padding: 10px; /* Space around the links */
+    transition: background 0.3s; /* Smooth background transition */
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+
+nav.container a:hover {
+    color: lightgreen; 
+    transition: 0.8s;
+
+}
+
+#content {
+    margin-left: 250px; /* Space for the sidebar */
+    padding: 20px; /* Padding for content area */
+    font-family: Poppins;
+}
+@font-face {
+    font-family: Poppins;
+    src: url(Poppins\ Light\ 300.ttf) 
+}
+#submit{
+    background-color: black;
+    color: lightgreen;
+}
+#sidebar a:hover{
+    color: lightgreen;
+    transition: 0.8s;
+}

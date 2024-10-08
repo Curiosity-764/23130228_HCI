@@ -4,23 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
-    <link rel="stylesheet" href="style3.css">
-    <link rel="stylesheet" href="about.css">
+ 
+   <link rel="stylesheet" href="about.css">
+   <link rel="stylesheet" href="index2.css">
    
 </head>
+<style>
+    p{
+        color:	#bbbbbb;
+        font-size: 23px;
+        text-indent: 3%;
+        margin-left: 50px;
+    }
+    h1{
+        color: lightgreen;
+        font-family: Poppins;
+        font-weight: bold;
+        font-size: 50px;
+        margin-left: 50px;
+
+    }
+    h2{
+        color:lightblue ;
+        font-family: Poppins;
+        text-decoration:underline ;
+        margin-left: 50px;
+
+    }
+    ul>li{
+        color:	#bbbbbb;
+        font-size: 23px;
+        font-family: Poppins;
+
+    }
+    h3{
+        color:lightblue ;
+        font-family: Poppins;
+        font-size: 20px;
+        text-indent: 1.5%;
+        margin-left: 70px;
+
+    
+    }
+    .finalsection{
+text-indent: 6%;
+    }
+  
+    
+    #sidebar {
+            width: 200px;
+            background-color: black;
+            padding: 10px;
+            position: fixed;
+            left: -220px; 
+            transition: left 0.3s; 
+        }
+        #sidebar.show {
+            left: 0; /* Show sidebar */
+        }
+        #sidebar a, #sidebar button {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        #sidebar #sidebarToggle {
+            margin-bottom: 10px; 
+        }  
+        #toggleButton {
+            margin-left: 220px;
+            cursor: pointer;
+            margin-top: 90px;            
+        }
+</style>
+
 <body>
     <div id="wrapper">
-        <div id="header">
+        <div id="sidebar">
             <nav class="container">
                 <a href="lab1.html">Lab1</a>
-                <a href="">Lab2</a>
-                <a href="">Lab3</a>
-                <a href="">Lab4</a>
+                <a href="login.html">Lab2</a>
+                <a href="lab3.html">Lab3</a>
+                <a href="lab4.html">Lab4</a>                          
                 <a href="About.html">About</a>
                 <a href="Home.html">Home</a>
             </nav>
+            <button id="toggleButton"><img src="menu.png" height="50px" width="50px" style="background-color: none;" > </button>
         </div>
         <div class="myCV">
+         
             <h1>About Me IRL</h1>
             <nav class="img-displayer">
                 <img src="about.png" alt="My CV" onclick="openModal(this, 0)">
@@ -32,17 +110,58 @@
                 <img src="School.jpg" alt="" onclick="openModal(this, 6)">
                 <img src="School1.jpg" alt="" onclick="openModal(this, 7)">
                 <img src="School2.jpg" alt="" onclick="openModal(this, 8)">
+                
+        <img src="business1.jpg" alt="" onclick="openModal(this, 9)">
+        <img src="business2.jpg" alt="" onclick="openModal(this, 10)">
+        <img src="business3.jpg" alt=""onclick="openModal(this, 11)">
+        <img src="business4.jpg" alt="" onclick="openModal(this, 12)">
             </nav>
             <h1>These pictures are viewable!</h1>
         </div>
         <div id="myModal" class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="img01">
-            <button class="next-btn" id="nextBtn" onclick="nextImage()">Next Image</button>
+            <button class="prev-btn" id="prevBtn" onclick="prevImage()">    
+                <img src="back.png" alt="Previous" width="50px" height="50px" class="prev">
+            </button>
+            <button class="next-btn" id="nextBtn" onclick="nextImage()"><img src="next.png" alt="" width="50px" height="50px" class="next"></button>
+            
         </div>
     </div>
+    
+    
+   
+    <div id="content">
+        <!-- Content  -->
+        <p>Also checkout my family's business: <a href="https://www.facebook.com/DungPhatGaming/" target="_blank">//www.facebook.com/DungPhatGaming/</a></p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>    
+        <footer>
+            <p>&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+            <p>Contact: 0764753405</p>
+        </footer>
+    </div>
+</div>
+    
+    
+    
     <script>
+const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+
+
+        // mở menu
+        function toggleSidebar() {
+            sidebar.classList.toggle('show');
+          
+        }
+
+        // chức năng
+        toggleButton.addEventListener('click', toggleSidebar);
         let currentImageIndex = 0;
+        
+        
+        
+        
         const images = [
             'about.png',
             'Trip.jpg',
@@ -54,7 +173,7 @@
             'School1.jpg',
             'School2.jpg'
         ];
-
+// khung chứa ảnh
         function openModal(img, index) {
             const modal = document.getElementById("myModal");
             const modalImg = document.getElementById("img01");
@@ -64,20 +183,25 @@
             currentImageIndex = index; 
             nextBtn.style.display = "block"; 
         }
-
+// đóng cửa sổ ảnh mở rộng
         function closeModal() {
             const modal = document.getElementById("myModal");
             modal.style.display = "none";
             document.getElementById("nextBtn").style.display = "none"; 
         }
-
+// ảnh tiếp theo
         function nextImage() {
             currentImageIndex = (currentImageIndex + 1) % images.length; 
             const modalImg = document.getElementById("img01");
             modalImg.src = images[currentImageIndex];
         }
-
-       
+// ảnh trước
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length; 
+            const modalImg = document.getElementById("img01");
+            modalImg.src = images[currentImageIndex];
+        }
+       // hiển thị cửa sổ ảnh mở rộng
         window.onload = function() {
             closeModal();
         };

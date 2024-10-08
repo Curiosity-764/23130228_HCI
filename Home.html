@@ -5,28 +5,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
-    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="index2.css">
    
 </head>
+<style>
+    p{
+        color:	#bbbbbb;
+        font-size: 23px;
+        text-indent: 3%;
+        margin-left: 50px;
+    }
+    h1{
+        color: lightgreen;
+        font-family: Poppins;
+        font-weight: bold;
+        font-size: 50px;
+        margin-left: 50px;
+
+    }
+    h2{
+        color:lightblue ;
+        font-family: Poppins;
+        text-decoration:underline ;
+        margin-left: 50px;
+
+    }
+    ul>li{
+        color:	#bbbbbb;
+        font-size: 23px;
+        font-family: Poppins;
+
+    }
+    h3{
+        color:lightblue ;
+        font-family: Poppins;
+        font-size: 20px;
+        text-indent: 1.5%;
+        margin-left: 70px;
+
+    
+    }
+    .finalsection{
+text-indent: 6%;
+    }
+    #footer{
+        color:lightgreen;
+    }
+    
+    #sidebar {
+            width: 200px;
+            background-color: black;
+            padding: 10px;
+            position: fixed;
+            left: -220px; /* Hide sidebar initially */
+            transition: left 0.3s; /* Animation */
+        }
+        #sidebar.show {
+            left: 0; /* Show sidebar */
+        }
+        #sidebar a, #sidebar button {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        #sidebar #sidebarToggle {
+            margin-bottom: 10px; /* Space between button and other items */
+        }  
+        #toggleButton {
+            margin-left: 220px;
+            cursor: pointer;
+            margin-top: 90px;            
+        }
+</style>
+
+
+
+
 
 <body>
    
     <div id="wrapper">
-        <div id="header">
+        <div id="sidebar">
             <nav class="container">
-              
-                        <a href="lab1.html">Lab1</a>
-                        <a href="">Lab2</a>
-                        <a href="">Lab3</a>
-                        <a href="">Lab4</a>                          
-                       <a href="About.html">About</a>
-                       <a href="Home.html">Home</a>
-                    
-                
+                <a href="lab1.html">Lab1</a>
+                <a href="login.html">Lab2</a>
+                <a href="lab3.html">Lab3</a>
+                <a href="lab4.html">Lab4</a>                          
+                <a href="About.html">About</a>
+                <a href="Home.html">Home</a>
             </nav>
-        </div>
-    </div>
-    <h1>This is the Home Page!</h1>
-</body>
+            <button id="toggleButton"><img src="menu.png" height="50px" width="50px" style="background-color: none;" > </button>
 
+        </div>
+        <div id="content">
+            <!-- Main content goes here -->
+            <h1>H C I</h1>
+            <h2>1. What exactly is HCI?</h2>
+         <p>Simply put, HCI is a shortened version of Human - Computer Interactions. 
+            Its a a multidisciplinary field of study focusing on the design of computer technology and, in particular, the interaction between humans (the users) and computers. </p>
+        <h2>History - Creators :</h2>
+        <ul>
+        <li>Early computers was extremely difficult to use, it was large and expensive. It was used by specialists or engineers.</li>
+        <li><strong style="color:yellowgreen;">ENIAC</strong> (Electronic Numerical Integrator And Computer) was released in <strong style="color: yellowgreen;">1945</strong>. It was the first programmable electronic and general purpose digital computer.</li>
+        <li>In mid <strong style="color: yellowgreen;">1960‘s</strong> command line interface(CLI) was used to interact with computer. CLI are light weight and requires few memory consumption.</li>
+        <li><strong style="color: yellowgreen;">1980‘s</strong> are the booming phase for HCI. Some of the market leaders like <strong style="color: yellowgreen;">Apple</strong> and <strong style="color: yellowgreen;">Microsoft</strong> plays a crucial role for the modern development of HCI. GUI (Graphic User Interface) application was created that was easy to use, understand and visualize.</li>
+        <li>XEROX STAR was released in <strong style="color: yellowgreen;">1981</strong>. It had mouse driven graphical user interface and built-in ethernet network and protocol. It also had laser printer. This was consideyellowgreen far ahead of its time. Two years later in 1983 Apple Lisa was released, it offeyellowgreen document-centeyellowgreen graphical interface based on the metaphor of desktop.</li>
+        <li>In <strong style="color: yellowgreen;">1984</strong> Macintosh was release and it was revolutionary. It had good graphic user interface and a variety of fonts that makes your document more appealing to readers.</li>
+        <li>In <strong style="color: yellowgreen;">1990‘s</strong> internet starts it’s journey. Communication between people become very easy through social networking like Email. The World Wide Web(WWW) was created by Tim Berners-Lee. It is way for people to share information.</li>
+        <li>In <strong style="color: yellowgreen;">2000</strong> mobile, laptop, tablet was a buzz word in this period. These gadget provides more flexibility to user. User can connect with anyone at any place. Smart phones comes into picture. User don’t need any mouse or pointing device to select anything. They can use their fingers to interact with device. It provides more features like built-in music player, camera, weather forecast, Internet, GPS, games, video conferencing and many more.</li>
+        <li>In <strong style="color: yellowgreen;">2006 NINTENDO </strong> Wii. It was famous for it’s rear remote controller a handheld pointing device that detects movements in 3D. It enables users to simulate real world sports and activities through different games. This paved the way for gaming consoles like XBOX</li>
+        <li><strong style="color: yellowgreen;">Windows 10</strong> is a series of operating systems developed by Microsoft released in<strong style="color: yellowgreen;"> 2015</strong>. It made user experience more consistent between different classes of device. The rising popularity and availability of laptops and computer systems, Microsoft made windows 10 adaptable into different systems.</li>
+        <li>VR oculus rift was a revolution in virtual reality. It was launched in <strong style="color: yellowgreen;">2016</strong>. The rift is primarily a gaming device. However it is also capable of viewing conventional movies and videos from inside the virtual cinema environment. It is increasingly used in universities and schools as an educational tool.</li>
+        </ul>
+        
+        <h2>Objectives</h2>
+        <p>Human uses digital devices to perform various activities. HCI is to design a systems in such a way that make them efficient, stable, usable and attainable. Lack of communication can result in poor designed user interfaces. It provides a ways to yellowgreenuce design time through various task models. There are some disciplines contributing to HCI.</p>
+        <img src="" alt="">
+        <h2>Use Cases of HCI</h2>
+        <ul>
+            <li><strong style="color: yellowgreen;">Smart home</strong> : Smart homes refers to home amenities that have been fitted with communication technology enabling some degree of automation or remote control. It includes control of air conditioning, heating and lighting through voice activated commands or mobile app. Home security systems are also fitted with communication technology to alert the residents in case of burglary.</li>
+            <li><strong style="color: yellowgreen;">Biometric Sensors</strong> : Biometric sensors are the use of human biometrics in various technological applications. It can be used in access controls for example granting access to a computer network or security system.</li>
+            <li><strong style="color: yellowgreen;">Autonomous vehicle :</strong> An autonomous vehicle is one that can drive itself. Tesla is a company which pioneeyellowgreen the engineering of autonomous driving vehicles. It has advanced autopilot technology which allows real time navigation updates.</li>
+            <li><strong style="color: yellowgreen;">Virtual assistants</strong> : Another innovation in this era is the intelligent virtual assistant or intelligent personal assistant. It is a software agent that can perform task or services or an individual based on commands or questions. These virtual assistants can interpret human speech and respond via voices.</li>
+            <li><strong style="color: yellowgreen;">Smart phones for Visual Disabilities</strong> : There are some features present in smart phones that make the life of people with disabilities easy. Voiceover is a screen reader which basically means that your phone will talk out loud and tell you what’s on the screen. User can control it with certain touch gestures. There are some other features also like Magnification.</li>
+        </ul>
+        <h2>Application of HCI in different domains</h2>
+        <h3>Health Care</h3>
+        <p class="finalsection">Patients have so many options now a days. They can buy medicines online and book appointments with doctor just with the help of mobile application. Augmented Reality(AR) and Virtual Reality(VR) are now transforming surgical process, previously it was very risky. Now doctor can use 3D animations to visualize the process. It can be used to train new surgeons.</p>
+        <h3>Education</h3>
+        <p class="finalsection">
+            Now students can understand any concept more easily. There are so many resources available on internet now a days. Class room teaching are now very interesting with the help of smart classes. AR/VR can really help students to visualize any concept very easily. Students have option to study online. During COVID-19 students couldn’t able to go outside their home. In this situation they have option to study online.
+        </p>
+        <h3>Banking</h3>
+        <p class="finalsection">
+            Now common people don’t need to wait in long queues of bank. They can get banking solution right at their home using Net banking or Mobile banking. These application also provides user a secure environment to avoid cyber crimes.
+        </p>
+        <h3>Networking</h3>
+        <p class="finalsection">
+            Networking is very easy now a days. It includes social media networking and business networking. Now it is very easy for us to connect and share thoughts with anyone. It streamlines the process of finding jobs.
+        </p>
+            <footer >
+                <p style="color: lightgreen;">&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+                <p style="color: lightgreen;">Contact: 0764753405</p>
+            </footer>
+        </div>
+    
+        <script>
+            const sidebar = document.getElementById('sidebar');
+            const toggleButton = document.getElementById('toggleButton');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+    
+            // Function to toggle sidebar visibility
+            function toggleSidebar() {
+                sidebar.classList.toggle('show');
+               
+            }
+    
+            // Event listeners for both buttons
+            toggleButton.addEventListener('click', toggleSidebar);
+            
+        </script>
+</body>
 </html>

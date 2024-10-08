@@ -1,87 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Management</title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="index2.css">
+    </head>
+   
+   
    <style>
     table {
     width: 80%;
     border-collapse: collapse;
-    margin-top: 20px;
-    margin-left: 150px;
+    align-items: center;
 }
 th, td {
-    width: 100px;
+    width: 200px;
     padding: 8px 12px;
     border: 1px solid #ddd;
     text-align: center;
     background-color: lightslategray;
+    color: black;
 }
 th {
     background-color: #f2f2f2;
 }
+
+#sidebar {
+            width: 250px;
+            background-color: black;
+            padding: 10px;
+            position: fixed;
+            left: -220px; 
+            transition: left 0.3s; 
+        }
+        #sidebar.show {
+            left: 0; /* Show sidebar */
+        }
+        #sidebar a, #sidebar button {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        #sidebar #sidebarToggle {
+            margin-bottom: 10px; 
+        }  
+        #toggleButton {
+            margin-left: 220px;
+            cursor: pointer;
+            margin-top: 90px;            
+        }
    </style>
 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Management</title>
-</head>
+
 
 
 <body>
-    <link rel="stylesheet" href="style3.css">
+    
     <div id="wrapper">
-        <div id="header">
+        <div id="sidebar">
             <nav class="container">
-              
-                        <a href="lab1.html">Lab1</a>
-                        <a href="">Lab2</a>
-                        <a href="">Lab3</a>
-                        <a href="">Lab4</a>                          
-                       <a href="About.html">About</a>
-                       <a href="Home.html">Home</a>
-                    
-                
+                <a href="lab1.html">Lab1</a>
+                <a href="login.html">Lab2</a>
+                <a href="lab3.html">Lab3</a>
+                <a href="lab4.html">Lab4</a>                          
+                <a href="About.html">About</a>
+                <a href="Home.html">Home</a>
             </nav>
+            <button id="toggleButton"><img src="menu.png" height="50px" width="50px" style="background-color: none;" > </button>
+        </div>
+        
+        <div id="content">
+            <!-- Main content goes here -->
+
+            <footer>
+                <p>&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+                <p>Contact: 0764753405</p>
+                <h1>Course Management System</h1>
+    
+                <div id="forms">
+                <form id="courseForm">
+                    
+                    <label for="courseID" >Course ID :</label>
+                    <input type="text" id="courseID" placeholder="Course ID" required >
+                    <br>
+                    <label for="courseName">Course Name :</label>
+                    <input type="text" id="courseName" placeholder="Course Name" required maxlength="255">
+                    <br>
+                    
+                    <label for="courseDesc"></label>
+                    <input type="text" id="courseDesc" required maxlength="255" placeholder="Course Description">
+                    <br>
+                    <button type="submit" id="submit">Add Course</button>
+                </form>
+                <br><br>
+            </div>
+                <table id="courseTable">
+                    <thead>
+                        <tr>
+                            <th>Course ID</th>
+                            <th>Course Name</th>                
+                            <th>Date Created</th>
+                            <th>Course Description</th>
+                            <th>Action Bar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- học sinh sẽ được thêm vào ở table này -->
+                    </tbody>
+                </table>
+            
+            
+            </footer>
         </div>
     </div>
-</body>
 <br><br>
 <body>   
-    <h1>Course Management System</h1>
     
-    <div id="forms">
-    <form id="courseForm">
-        
-        <label for="courseID" >Mã Khoá Học :</label>
-        <input type="text" id="courseID" placeholder="Course ID" required >
-        <br>
-        <label for="courseName">Tên khoá học :</label>
-        <input type="text" id="courseName" placeholder="Course Name" required maxlength="255">
-        <br>
-        
-        <label for="courseDesc"></label>
-        <input type="text" id="courseDesc" required maxlength="255" placeholder="Course Description">
-        <br>
-        <button type="submit" id="submit">Thêm khoá học</button>
-    </form>
-</div>
-    <table id="courseTable">
-        <thead>
-            <tr>
-                <th>Mã Khoá Học</th>
-                <th>Tên Khoá Học</th>                
-                <th>Ngày tạo</th>
-                <th>Thông tin khoá học</th>
-                <th>Action Bar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- học sinh sẽ được thêm vào ở table này -->
-        </tbody>
-    </table>
-
+    
   <script>
-   document.getElementById('courseForm').addEventListener('submit',function(e){
+  
+  const sidebar = document.getElementById('sidebar');
+            const toggleButton = document.getElementById('toggleButton');
+          
+    
+            // mở menu
+            function toggleSidebar() {
+                sidebar.classList.toggle('show');
+               
+            }
+    
+            // chức năng menu
+            toggleButton.addEventListener('click', toggleSidebar);
+          
+
+
+
+
+  document.getElementById('courseForm').addEventListener('submit',function(e){
 e.preventDefault();
 // thêm chức năng nút submit
 
@@ -108,6 +174,10 @@ const deleteRow = newRow.parentNode;
 deleteRow.removeChild(newRow)
 });
    }); 
+
+   
+        
+        
         </script>
 
 

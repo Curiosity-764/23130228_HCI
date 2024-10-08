@@ -2,12 +2,14 @@
 .img-display {
     display: flex;
     justify-content: center;
+   
 }
 
 .img-display a {
     color: white;
     padding: 15px 20px;
     text-decoration: none;
+   
 }
 
 .img-display a:hover {
@@ -22,11 +24,14 @@
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 240px;
+    padding: 20px;
+    
 }
 
 .myCV img {
     margin: 0 10px;
-    max-width: 150px;
+    max-width: 100px;
     height: auto;
     border-radius: 5px;
     cursor: pointer;
@@ -76,33 +81,50 @@ h1 {
 }
 
 .next-btn {
-    display: none; /* Hidden by default */
+    display: none; 
     position: absolute;
-    bottom: 20px;
+    margin-top: 50px;
     right: 30px;
     background-color: white;
     color: black;
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 16px;
+    background: none;
+    background-size: cover;
+    cursor: pointer;
 }
-@media (max-width: 768px) {
-    .myCV {
-        padding: 15px; /* Less padding on smaller screens */
+@media (max-width: 1000px) {
+   
+    
+    .next-btn {
+        font-size: 14px; /* Slightly smaller button text */
+        padding: 8px; /* Reduced padding */
     }
-
-    .img-displayer img {
-        max-width: 120px; /* Smaller images on smaller screens */
+    
+    h1 {
+        font-size: 1.2em; /* Smaller font size */
+    }
+    
+    .img-display img {
+        max-width: 50%; /* Make images larger on mobile */
+    }
+    .myCV img {
+        flex-direction: row;
+        max-width: 50px;
+       
     }
 }
+.prev-btn{
+   background: none;
+    background-size: cover;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 50px;
+    position: absolute;
+    left: 50px;
 
-@media (max-width: 480px) {
-    .myCV {
-        padding: 10px; /* Further reduce padding */
-    }
+    
 
-    .img-displayer img {
-        max-width: 80px; /* Even smaller images on extra small screens */
-    }
 }
+
