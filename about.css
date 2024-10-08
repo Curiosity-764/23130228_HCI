@@ -2,12 +2,14 @@
 .img-display {
     display: flex;
     justify-content: center;
+   
 }
 
 .img-display a {
     color: white;
     padding: 15px 20px;
     text-decoration: none;
+   
 }
 
 .img-display a:hover {
@@ -22,6 +24,9 @@
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 240px;
+    padding: 20px;
+    
 }
 
 .myCV img {
