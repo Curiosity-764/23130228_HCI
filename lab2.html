@@ -196,7 +196,6 @@
            
         </div>
     </div>
-
     <script>
         const sidebar = document.getElementById('sidebar');
         const toggleButton = document.getElementById('toggleButton');
@@ -226,80 +225,70 @@
                 modal.style.display = "none";
             }
         }
+        let isCodeCorrect = false; // Variable to track if the code is correct
 
-        document.getElementById('test-code').addEventListener('click', function () {
+document.getElementById('test-code').addEventListener('click', function () {
     const selectedTask = document.getElementById('taskSelect').value;
     const userCode = document.getElementById('codeInput').value.trim();
     let resultMessage = '';
-    let isCorrect = true;
+    isCodeCorrect = true; // Reset for each test
 
     // Check if the user has entered code
     if (!userCode) {
         resultMessage = 'Please enter your code before testing.';
-        isCorrect = false;
+        isCodeCorrect = false;
     } else {
         // Check if the required function is defined
         if (selectedTask === 'sum' && !userCode.includes('function sum')) {
             resultMessage = 'Please define a function named "sum".';
-            isCorrect = false;
+            isCodeCorrect = false;
         } else if (selectedTask === 'multiply' && !userCode.includes('function multiply')) {
             resultMessage = 'Please define a function named "multiply".';
-            isCorrect = false;
+            isCodeCorrect = false;
         }
 
         // If the function is defined, run tests
-        if (isCorrect) {
+        if (isCodeCorrect) {
             let func;
             try {
-                // Create a new function from the user code
-                eval(userCode); // Evaluate the user's code
+                // Use new Function to create a function from user code
+                func = new Function(userCode + '\nreturn ' + (selectedTask === 'sum' ? 'sum' : 'multiply') + ';')();
 
-                if (selectedTask === 'sum') {
-                    func = sum; // Assign the sum function
-                    const testCases = [
+                // Test the function
+                const testCases = selectedTask === 'sum' 
+                    ? [
                         { a: 3, b: 5, expected: 8 },
                         { a: -1, b: 1, expected: 0 },
                         { a: 0, b: 0, expected: 0 }
-                    ];
-                    testCases.forEach(({ a, b, expected }) => {
-                        const result = func(a, b);
-                        if (result !== expected) {
-                            isCorrect = false;
-                            resultMessage += `Test failed: sum(${a}, ${b}) = ${result}. Expected ${expected}.<br>`;
-                        }
-                    });
-                } else if (selectedTask === 'multiply') {
-                    func = multiply; // Assign the multiply function
-                    const testCases = [
+                      ]
+                    : [
                         { a: 4, b: 5, expected: 20 },
                         { a: -3, b: 3, expected: -9 },
                         { a: 0, b: 7, expected: 0 }
-                    ];
-                    testCases.forEach(({ a, b, expected }) => {
-                        const result = func(a, b);
-                        if (result !== expected) {
-                            isCorrect = false;
-                            resultMessage += `Test failed: multiply(${a}, ${b}) = ${result}. Expected ${expected}.<br>`;
-                        }
-                        
-                    });
-                }
+                      ];
+
+                testCases.forEach(({ a, b, expected }) => {
+                    const result = func(a, b);
+                    if (result !== expected) {
+                        isCodeCorrect = false;
+                        resultMessage += `Test failed: ${selectedTask}(${a}, ${b}) = ${result}. Expected ${expected}.<br>`;
+                    }
+                });
             } catch (e) {
                 resultMessage = 'Error in your code: ' + e.message;
-                isCorrect = false;
+                isCodeCorrect = false;
             }
         }
     }
 
     // Final message based on correctness
-    if (isCorrect && userCode) {
+    if (isCodeCorrect && userCode) {
         resultMessage = 'All tests passed!';
     }
 
     document.getElementById('resultMessage').innerHTML = resultMessage;
-    document.getElementById('resultMessage').className = isCorrect ? 'result correct' : 'result incorrect';
+    document.getElementById('resultMessage').className = isCodeCorrect ? 'result correct' : 'result incorrect';
 });
-
 
          // Code highlighting functionality
          const keywords = ['function', 'var', 'let', 'const', 'if', 'else', 'return','int','double','float','}','{'];
@@ -329,19 +318,47 @@
             sel.addRange(range);
         }
 
-
-        // Close submission modal when clicking outside of it
-        window.onclick = function(event) {
-    if (event.target == submitModal) {
+        document.getElementById('submit-code').addEventListener('click', function () {
+    const userCode = document.getElementById('codeInput').value.trim();
+    const selectedTask = document.getElementById('taskSelect').value; // Get the selected task
+    
+    if (!userCode) {
+        document.getElementById('submitMessage').innerText = 'Please enter your code before submitting.';
+    } else if (!selectedTask) {
+        document.getElementById('submitMessage').innerText = 'Please select a task before submitting.';
+    } else {
+        document.getElementById('submitMessage').innerText = 'Your code for the task "' + selectedTask + '" has been submitted successfully!';
+    }
+    
+    // Show the submit modal
+    document.getElementById('submitModal').style.display = "flex";
+    
+    
+    window.onclick = function(event) {
+    const submitModal = document.getElementById('submitModal');
+    const modalContent = document.getElementById('submitModalContent');
+    if (event.target === submitModal) {
         submitModal.style.display = "none"; // Hide submission modal       
     }
-}
+};
+setTimeout(function() {
+            document.getElementById('submitModal').style.display = "none"; // Hide submission modal
+            const targetPage = isCodeCorrect ? '100.html' : '0.html'; // Redirect based on correctness
+            window.location.href = targetPage;
+        }, 3000); // Redirect after 3 seconds
+    });
+
+
+    
+
 window.onclick = function(event) {
     if (event.target == alertModal) {
-        alertModal.style.display = "none"; // Hide submission modal       
+        alertModal.style.display = "none"; 
     }
 }
 
     </script>
-</body>
-</html>
+    </body>
+    </html>
+    
+    
