@@ -57,3 +57,30 @@ nav.container a:hover {
     color: lightgreen;
     transition: 0.8s;
 }
+@media (max-width: 1440px) {
+    #sidebar {
+        width:18%; /* Slightly wider sidebar */
+        max-width: 300px; /* Adjust max width */
+    }
+    nav.container a {
+        font-size: 1.1rem; /* Adjust font size for better readability */
+    }
+}
+
+/* For MacBook Pro (Retina) 13" (2560x1600) */
+@media (max-width: 2560px) {
+    #wrapper {
+        max-width: 1400px; /* Slightly smaller max width */
+    }
+    #comment{
+        max-width: 1000px;
+        height: 500px;
+    }
+}
+
+/* For MacBook Pro 15" (2880x1800) */
+@media (max-width: 2880px) {
+    #wrapper {
+        max-width: 1600px; /* Adjust max width for larger screens */
+    }
+}
