@@ -1,0 +1,73 @@
+.container a {
+    display: block;
+    padding: 13px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family:'Poppins';
+    
+}
+nav{
+    z-index: 100;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    
+}
+.container{ 
+    display: flex;
+    width: 1850;
+    height: 50px;
+    background-color: black;
+    border: 9px solid lightgreen;
+    border-radius: 20px;
+  
+}
+body{
+    background-image: url(background2\ \(2\).png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+@font-face {
+    font-family: Poppins;
+    src: url(Poppins\ Light\ 300.ttf);
+}
+.container a:hover{
+    color: lightgreen;
+    transition: .8s;
+}
+h1{
+    text-align: center;
+    color: lightgreen;
+}
+#forms{
+    max-width: 500px;
+    height: 220px;
+    border:3px solid black;
+    float: right 50px;
+}
+label{
+padding: 3px;
+color:lightgreen;
+}
+#courseDesc{
+    padding: 3px;
+    width: 450px;
+    height: 80px;
+    margin: 10px;
+
+}
+input{
+    width: 200px;
+    color:black;
+   
+    
+}
+#submit{
+    height: 25px;
+    margin: 10px;
+    max-width: 200px;
+    background-color: black;
+    color: lightgreen;
+    
+}
