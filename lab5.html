@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+<div class="container-fluid" > <!-- Use container-fluid for full width -->
+    <h1 >Learning Platform</h1>
+    
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist" >
+        <li class="nav-item">
+            <a class="nav-link active" id="all-courses-tab" data-bs-toggle="tab" href="#all-courses" role="tab" aria-controls="all-courses" aria-selected="true">All Courses</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="learning-paths-tab" data-bs-toggle="tab" href="#learning-paths" role="tab" aria-controls="learning-paths" aria-selected="false">Learning Paths</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="certifications-tab" data-bs-toggle="tab" href="#certifications" role="tab" aria-controls="certifications" aria-selected="false">Certifications</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="archived-tab" data-bs-toggle="tab" href="#archived" role="tab" aria-controls="archived" aria-selected="false">Archived</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="learning-tools-tab" data-bs-toggle="tab" href="#learning-tools" role="tab" aria-controls="learning-tools" aria-selected="false">Learning Tools</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="all-courses" role="tabpanel" aria-labelledby="all-courses-tab">
+           
+           <div class="Category">
+            <ul style="list-style: none;display: flex;flex-direction: row;margin-left: -20px;">
+            <li style="font-size: 20px;">Sort by</li>
+            <li style="font-size: 20px;">Filter by</li>
+        </ul>
+    </div>
+           
+            <!-- Dropdown Menu -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Recently Accessed
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Course 1</a></li>
+                    <li><a class="dropdown-item" href="#">Course 2</a></li>
+                    <li><a class="dropdown-item" href="#">Course 3</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Course 4</a></li>
+                </ul>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 40px;">
+                    Categories
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item" href="#">Course 1</a></li>
+                    <li><a class="dropdown-item" href="#">Course 2</a></li>
+                    <li><a class="dropdown-item" href="#">Course 3</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Course 4</a></li>
+                </ul>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 45px;">
+                    Progress
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                    <li><a class="dropdown-item" href="#">Course 1</a></li>
+                    <li><a class="dropdown-item" href="#">Course 2</a></li>
+                    <li><a class="dropdown-item" href="#">Course 3</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Course 4</a></li>
+                </ul>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 45px;">
+                    Instructor
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                    <li><a class="dropdown-item" href="#">Course 1</a></li>
+                    <li><a class="dropdown-item" href="#">Course 2</a></li>
+                    <li><a class="dropdown-item" href="#">Course 3</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Course 4</a></li>
+                </ul>
+                <button style="margin-left: 45px; border: none; background-color: white;">
+                    Reset
+                </button>
+            </div>
+            
+            <!-- Cards Section -->
+            <div class="row mt-4">
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Course Title 1</h5>
+                            <p class="card-text">Short description of the course.</p>
+                            <a href="#" class="btn btn-primary">Go to Course</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Course Title 2</h5>
+                            <p class="card-text">Short description of the course.</p>
+                            <a href="#" class="btn btn-primary">Go to Course</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Course Title 3</h5>
+                            <p class="card-text">Short description of the course.</p>
+                            <a href="#" class="btn btn-primary">Go to Course</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Course Title 4</h5>
+                            <p class="card-text">Short description of the course.</p>
+                            <a href="#" class="btn btn-primary">Go to Course</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+        <div class="tab-pane fade" id="learning-paths" role="tabpanel" aria-labelledby="learning-paths-tab">
+            <h3>Learning Paths</h3>
+            <p>Guided paths to learning.</p>
+        </div>
+        <div class="tab-pane fade" id="certifications" role="tabpanel" aria-labelledby="certifications-tab">
+            <h3 class="text-center mt-4">Certifications</h3>
+            
+            <!-- Pending Certifications -->
+            <div class="container mt-4">
+                <h4 class="text-center">Pending Certifications</h4>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Certification Title 1</h5>
+                                <p class="card-text">Description of pending certification.</p>
+                                <button class="btn btn-primary">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Certification Title 2</h5>
+                                <p class="card-text">Description of pending certification.</p>
+                                <button class="btn btn-primary">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Certification Title 3</h5>
+                                <p class="card-text">Description of pending certification.</p>
+                                <button class="btn btn-primary">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Completed Certifications -->
+                <h4 class="text-center mt-4">Completed Certifications</h4>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Completed Certification 1</h5>
+                                <p class="card-text">Description of completed certification.</p>
+                                <button class="btn btn-primary">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Completed Certification 2</h5>
+                                <p class="card-text">Description of completed certification.</p>
+                                <button class="btn btn-primary">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Completed Certification 3</h5>
+                                <p class="card-text">Description of completed certification.</p>
+                                <button class="btn btn-primary">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Badge Import Section -->
+                <h4 class="text-center mt-4">Import Badges</h4>
+                <div class="text-center mt-3">
+                    <input type="file" class="form-control-file" id="badgeFile" style="margin-bottom: 20px;">
+                    <button class="btn btn-success">Import Badges</button>
+                    <p class="text-muted mt-3">Upload your badge files to import them into your profile.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-pane fade" id="archived" role="tabpanel" aria-labelledby="archived-tab">
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card" style="width: 700px;">
+                        <img src="https://via.placeholder.com/700x200" class="card-img-top" alt="Archived Course Image">
+                        <div class="card-body text-center"> <!-- Ensure text-center is applied -->
+                            <h5 class="card-title">Archived Course Title 1</h5>
+                            <p class="card-text">This course has been archived. It may no longer be available.</p>
+                            <a href="#" class="btn btn-primary">View more details</a> <!-- Button is centered -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card" style="width: 700px;">
+                        <img src="https://via.placeholder.com/700x200" class="card-img-top" alt="Archived Course Image">
+                        <div class="card-body text-center"> <!-- Ensure text-center is applied -->
+                            <h5 class="card-title">Archived Course Title 2</h5>
+                            <p class="card-text">This course has been archived. It may no longer be available.</p>
+                            <a href="#" class="btn btn-primary">View more details</a> <!-- Button is centered -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            
+<div class="tab-pane fade" id="learning-tools" role="tabpanel" aria-labelledby="learning-tools-tab">
+    <h3 class="text-center mt-4">Learning Tools</h3>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="card" style="width: 300px;">
+                <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="Tool Image 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Tool Title 1</h5>
+                    <p class="card-text">Brief description of Tool 1, explaining its features and benefits.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="card" style="width: 300px;">
+                <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="Tool Image 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Tool Title 2</h5>
+                    <p class="card-text">Brief description of Tool 2, explaining its features and benefits.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="card" style="width: 300px;">
+                <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="Tool Image 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Tool Title 3</h5>
+                    <p class="card-text">Brief description of Tool 3, explaining its features and benefits.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

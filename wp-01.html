@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index2.css">
+    <style>   
+        #sidebar {
+            width: 200px;
+            background-color: black;
+            padding: 10px;
+            position: fixed;
+            left: -220px; /* Hide sidebar initially */
+            transition: left 0.3s; /* Animation */
+        }
+        #sidebar.show {
+            left: 0; /* Show sidebar */
+        }
+        #sidebar a, #sidebar button {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        #sidebar #sidebarToggle {
+            margin-bottom: 10px; /* Space between button and other items */
+        }  
+        #toggleButton {
+            margin-left: 220px;
+            cursor: pointer;
+            margin-top: 90px;
+                   
+        }
+
+        #pdf-showing{
+    height: 750px;
+    width: 1000px;
+position: relative;
+display: inline-block;
+padding-left: 60px;
+        }
+        .back-button{
+     width:100px;
+       float: right;
+       padding: 15px;
+        cursor: pointer;
+        color: white;
+        background-color: black;
+        font-weight: bold;
+        font-family: Poppins;
+        border: none;
+        }
+.back-button:hover{
+    color: lightgreen;
+    transition: 0.8s;
+
+}
+    </style>
+</head>
+<body>
+    <div id="wrapper">       
+        <div id="sidebar">     
+            <nav class="container">
+                <a href="lab1.html">Lab1</a>
+                <a href="lab2.html">Lab2</a>
+                <a href="lab3-selection.html">Lab3</a>
+                <a href="lab4.html">Lab4</a>                          
+                <a href="About.html">About</a>
+                <a href="Home.html">Home</a>
+            </nav>
+            <button id="toggleButton"><img src="menu.png" height="50px" width="50px" style="background-color: none;" > </button>
+        </div>
+        <div id="content">
+            <embed src="WP-01.pdf" type="application/pdf" id="pdf-showing">
+            <!-- Main content goes here -->
+         
+            <footer>
+                <button class="back-button" onclick="window.location.href='python-selection.html'">Back</button>
+                <p>&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+                <p>Contact: 0764753405</p>
+            </footer>
+            
+        </div>
+    </div>
+    
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+
+
+        // mở menu
+        function toggleSidebar() {
+            sidebar.classList.toggle('show');
+          
+        }
+
+        // chức năng
+        toggleButton.addEventListener('click', toggleSidebar);
+  
+    </script>
+
+</body>
+</html>

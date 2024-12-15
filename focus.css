@@ -1,0 +1,78 @@
+.container-fluid {
+    height: 100vh;
+  }
+
+  .row {
+    height: 100%;
+  }
+
+  /* Make the tabs column (left) take up full height */
+  .col-md-6 {
+    height: 100%;
+  }
+
+  /* Make the tabs themselves fill the height of the container */
+  .nav-pills {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ensure each tab takes up equal height */
+  .nav-item {
+    flex: 1;
+  }
+
+  /* General styles for all tabs */
+  .nav-link {
+    color: black !important; /* Make text black by default */
+    padding: 20px 20px;  /* Adjust padding for better spacing */
+    font-size: 18px;  /* Adjust font size */
+    font-weight: bold;
+    border-radius: 10px; /* Rounded corners */
+    text-align: left; /* Align text to the left */
+    transition: border 0.3s ease, background-color 0.3s ease;
+    display: block; /* Allow block-level styling */
+    height: 200px;
+  }
+
+  /* Remove the default Bootstrap blue on hover */
+  .nav-link:hover {
+    color: black !important; /* Keep text color black on hover */
+    text-decoration: none; /* Remove underline */
+    background-color: transparent !important; /* Ensure no background color on hover */
+    border-left: 8px solid purple !important; /* Thicker left border */
+    border-top: 2px solid purple;
+    border-right: 2px solid purple;
+    border-bottom: 2px solid purple;
+  }
+
+  /* Active tab with purple border */
+  .nav-link.active {
+    border-left: 8px solid purple !important; /* Thicker left border */
+    border-top: 2px solid purple;
+    border-right: 2px solid purple;
+    border-bottom: 2px solid purple;
+    background-color: transparent !important; /* Remove background */
+    color: black !important; /* Keep text color black on active tab */
+    font-weight: bold; /* Keep font weight bold */
+  }
+
+  /* Adjust paragraph under each tab in active/inactive tabs */
+  .nav-link p {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 8px; /* Add some margin to separate text from the tab title */
+    padding: 0;
+    color: gray; /* Color the text gray */
+  }
+
+  /* Optional: Add custom spacing inside nav-link */
+  .nav-item {
+    margin-bottom: 10px;
+  }
+  .tab-pane img {
+    width: 100%; /* Make the image stretch the full width */
+    height: 80vh; /* Set the image height to be 80% of the viewport height */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+  }

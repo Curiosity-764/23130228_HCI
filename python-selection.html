@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Java Courses</title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="index2.css">
+    </head>
+   
+   
+   <style>
+    table {
+    width: 80%;
+    border-collapse: collapse;
+    align-items: center;
+}
+th, td {
+    width: 200px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+#sidebar {
+            width: 250px;
+            background-color: black;
+            padding: 10px;
+            position: fixed;
+            left: -220px; 
+            transition: left 0.3s; 
+        }
+        #sidebar.show {
+            left: 0; /* Show sidebar */
+        }
+        #sidebar a, #sidebar button {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        #sidebar #sidebarToggle {
+            margin-bottom: 10px; 
+        }  
+        #toggleButton {
+            margin-left: 220px;
+            cursor: pointer;
+            margin-top: 90px;            
+        }
+        .back-button2{
+            float: right;
+            margin-top: 90px;
+            width: 100px;
+            height: 50px;
+            background-color: black;
+            border: none;
+            color:white;
+            font-weight: bold;
+        }
+        .back-button2:hover{
+            color: lightgreen;
+            transition: 0.8s;
+        }
+   </style>
+
+
+
+
+
+<body>
+    
+    <div id="wrapper">
+        <div id="sidebar">
+            <nav class="container">
+                <a href="lab1.html">Lab1</a>
+                <a href="lab2.html">Lab2</a>
+                <a href="lab3-selection.html">Lab3</a>
+                <a href="lab4.html">Lab4</a>                          
+                <a href="About.html">About</a>
+                <a href="Home.html">Home</a>
+            </nav>
+            <button id="toggleButton"><img src="menu.png" height="50px" width="50px" style="background-color: none;" > </button>
+        </div>
+        
+        <div id="content">
+            <!-- Main content goes here -->
+
+            <footer>
+                <p>&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+                <p>Contact: 0764753405</p>
+                <h1>Python-101 Courses List</h1>
+            </footer>
+                
+            
+            
+                <table id="pdf-choosing">
+                    <thead>
+                        <tr>
+                            <th>Course ID</th>                
+                            <th>Title</th>
+                            <th>Level</th>
+                            <th>Study Duration</th>
+                            <th>Link to pdf</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr>
+                            <td>PY-101</td>
+                            <td>Introduction to Python & Data Types</td>
+                            <td>Beginner</td>
+                            <td>15 hours</td>
+                            <td><a href="Py-101.html">Enroll</a></td>
+                            
+
+                        </tr>
+                        <tr>
+                            <td>PY-102</td>
+                            <td>Control Flow & Functions</td>
+                            <td>Beginner</td>
+                            <td>15 hours</td>
+                            <td><a href="Py-102-flow.html">Enroll - Flow</a>
+                                <br>
+                                <a href="Py-102-Func.html">Enroll - Function   </a></td>
+                        </tr>
+                        <tr>
+                            <td>PY-103</td>
+                            <td>Data Structures & File I/O</td>
+                            <td>Beginner</td>
+                            <td>15 hours</td>
+                            <td><a href="Py-103.html">Enroll</a></td>
+                        </tr>
+                        <tr>
+                            <td>PY-104</td>
+                            <td>Object-Oriented Programming & Libraries</td>
+                            <td>Beginner</td>
+                            <td>15 hours</td>
+                            <td><a href="Py-104.html">Enroll</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+            <button class="back-button2" onclick="window.location.href='lab3-selection.html'">Back</button>
+           
+        </div>
+    </div>
+<br><br>
+<body>   
+    
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+
+
+        // mở menu
+        function toggleSidebar() {
+            sidebar.classList.toggle('show');
+          
+        }
+
+        // chức năng
+        toggleButton.addEventListener('click', toggleSidebar);
+  
+    </script>
+
+
+</body>
+</html>

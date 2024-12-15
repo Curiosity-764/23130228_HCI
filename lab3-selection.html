@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index2.css">
+
+    <style>   
+        #sidebar {
+            width: 240px;
+            background-color: black;
+            padding: 10px;
+            position: fixed;
+            left: -220px; /* Hide sidebar initially */
+            transition: left 0.3s; /* Animation */
+        }
+        #sidebar.show {
+            left: 0; /* Show sidebar */
+        }
+        #sidebar a, #sidebar button {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        #toggleButton {
+            margin-left: 220px;
+            cursor: pointer;
+            margin-top: 90px;
+        }
+        .course-card {
+            height: 250px;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+        .course-card:hover {
+            transform: scale(1.05);
+        }
+        #content {
+            margin-left: 220px; /* Adjust content margin for sidebar */
+        }
+        footer {
+            background-color:none;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        h4{
+            font-weight: bold;
+        }
+        @media (max-width:1920){
+            
+            
+        }
+    </style>    
+</head>
+<body>
+    <div id="wrapper">       
+        <div id="sidebar">     
+            <nav class="container">
+                <a href="lab1.html">Lab1</a>
+                <a href="login.html">Lab2</a>
+                <a href="lab3-selection.html">Lab3</a>
+                <a href="lab4.html">Lab4</a>                          
+                <a href="About.html">About</a>
+                <a href="Home.html">Home</a>
+            </nav>
+            <button id="toggleButton"><img src="menu.png" height="50px" width="50px" style="background-color: none;" > </button>
+        </div>
+        <div id="content">
+            <!-- Main content goes here -->
+            <div class="container mt-5">
+                <h2 class="text-center">Choose Your Files</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <div class="course-card">
+                            <h4>Java Programming</h4>
+                            <p>Learn the fundamentals of Java.</p>
+                            <a href="lab3-java.html" class="btn btn-primary">Select</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="course-card">
+                            <h4>Python Programming</h4>
+                            <p>Get started with Python and data science.</p>
+                            <a href="python-selection.html" class="btn btn-primary">Select</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="course-card">
+                            <h4>Web Development</h4>
+                            <p>Build websites using HTML, CSS, and JavaScript.</p>
+                            <a href="wp-selection.html" class="btn btn-primary">Select</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="course-card">
+                            <h4>Data Structures</h4>
+                            <p>Understand the core concepts of data structures.</p>
+                            <a href="DS-selection.html" class="btn btn-primary">Select</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+                <p>Contact: 0764753405</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+
+        // Toggle sidebar
+        function toggleSidebar() {
+            sidebar.classList.toggle('show');
+        }
+
+        // Add event listener
+        toggleButton.addEventListener('click', toggleSidebar);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
