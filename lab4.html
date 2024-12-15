@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>Bootstrap Tab Example</title>
+    <style>
+        .custom-navbar {
+            margin-right: 40px; /* Right padding set to 40px */
+            background-color: #1c1a15; /* Navbar background color */
+        }
+        .custom-navbar .nav-link:hover {
+            color: #ccc; /* Lighten color on hover */
+        }
+        .video-container {
+            flex: 2; /* Takes up 2/3 of the width */
+        }
+        .courses-container {
+            flex: 1; /* Takes up 1/3 of the width */
+        }
+        .video-wrapper {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px; /* Space between video and tabs */
+        }
+        .checkbox-options {
+            display: none; /* Hidden by default */
+            margin-top: 10px;
+            position: relative; /* For positioning the resource button */
+        }
+        .resource-button {
+            position: absolute; /* Positioning at the bottom right */
+            bottom: 10px;
+            right: 10px;
+            border: 1.5px solid black; /* Black border */
+            display: flex;
+            align-items: center; /* Center icon and text vertically */
+        }
+        .resource-button i {
+            margin-right: 5px; /* Space between icon and text */
+        }
+        .star {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ccc; /* Default star color */
+        }
+        .star.checked {
+            color: gold; /* Checked star color */
+        }
+        .check-list {
+            list-style-type: none; /* Remove default list styling */
+            padding-left: 0; /* Remove padding */
+            font-size: 0.9rem; /* Smaller font size */
+        }
+        .check-list li {
+            position: relative; /* For positioning the checkmark */
+            padding-left: 30px; /* Space for the checkmark */
+            margin-bottom: 10px; /* Space between list items */
+        }
+        .check-list li::before {
+            content: '\2713'; /* Unicode for checkmark */
+            color: grey; /* Checkmark color */
+            position: absolute; /* Position absolutely */
+            left: 0; /* Align to left */
+            top: 0; /* Align to top */
+        }
+        .column {
+            flex: 1; /* Each column takes equal space */
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <a class="navbar-brand" href="#" style="color: white;">Home</a>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#" style="color: white;">Home</a>
+            <a class="nav-item nav-link" href="#" style="color: white;">Name</a>
+            <a class="nav-item nav-link" href="#" style="color: white;">Leave a Rating</a>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                    Your Progress
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Progress 1</a>
+                    <a class="dropdown-item" href="#">Progress 2</a>
+                    <a class="dropdown-item" href="#">Progress 3</a>
+                </div>
+            </div>
+        </div>
+        <div class="ml-auto">
+            <button class="btn btn-primary">Share</button>
+            <button class="btn btn-outline-secondary" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="d-flex mt-4">
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video width="100%" controls>
+                    <source src="your-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- Tabs Section -->
+                <ul class="nav nav-tabs mt-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Q&A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Announcements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Learning Tools</a>
+                    </li>
+                </ul>
+                
+                <!-- Overview Section -->
+                <h1 class="mt-3">Overview</h1>
+                <div class="ratings mt-2">
+                    <span class="star" onclick="rateCourse(1)">&#9733;</span>
+                    <span class="star" onclick="rateCourse(2)">&#9733;</span>
+                    <span class="star" onclick="rateCourse(3)">&#9733;</span>
+                    <span class="star" onclick="rateCourse(4)">&#9733;</span>
+                    <span class="star" onclick="rateCourse(5)">&#9733;</span>
+                </div>
+                <div id="ratingDisplay" class="mt-2">Rating: 0 stars</div>
+                <div class="mt-2">Supported Languages: English, Spanish, French</div>
+                <h2 class="mt-3 font-weight-bold">What you'll learn</h2>
+                
+                <!-- List with Grey Check Mark Decoration -->
+                <div class="row mt-3">
+                    <div class="column">
+                        <ul class="check-list">
+                            <li>You will become an expert in Mule ESB, Anypoint platform operations, MUnit and DevOps with Mule. Step by step coding in detail explanation.</li>
+                            <li>You are a student/customer should be able to set up MuleSoft by your own for your organization. You should be able to develop, design, manage projects.</li>
+                            <li>Mule Level 1, Level 2 and Integration Associate certifications are guaranteed.</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <ul class="check-list">
+                            <li>This course teaches you Mule 4.x in depth including all the phases of SDLC.</li>
+                            <li>You will feel real-time hands-on experience after finishing this course.</li>
+                            <li>The course will keep on adding new topics from MuleSoft.</li>
+                            <li>One course destination to learn all the actions of real-time projects.</li>
+                            <li>Mule real-time project of this course helps you deal with all real-time project activities and makes you confident while you are working in real-time.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="courses-container p-3">
+            <h4>Courses</h4>
+            <div class="list-group">
+                <!-- Generate 20 Courses -->
+                <script>
+                    const courseCount = 20;
+                    for (let i = 1; i <= courseCount; i++) {
+                        document.write(`
+                            <div class="list-group-item">
+                                Course ${i}
+                                <button class="btn btn-info btn-sm float-right" onclick="toggleCheckboxes('options${i}')">
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="checkbox-options" id="options${i}">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Option 1" id="course${i}-option1">
+                                        <label class="form-check-label" for="course${i}-option1">Option 1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Option 2" id="course${i}-option2">
+                                        <label class="form-check-label" for="course${i}-option2">Option 2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Option 3" id="course${i}-option3">
+                                        <label class="form-check-label" for="course${i}-option3">Option 3</label>
+                                    </div>
+                                    <button class="btn btn-light resource-button">
+                                        <i class="bi bi-file-earmark-text"></i> Resource
+                                    </button>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function toggleCheckboxes(id) {
+        const optionsDiv = document.getElementById(id);
+        if (optionsDiv.style.display === "none" || optionsDiv.style.display === "") {
+            optionsDiv.style.display = "block"; // Show the checkboxes
+        } else {
+            optionsDiv.style.display = "none"; // Hide the checkboxes
+        }
+    }
+
+    function rateCourse(stars) {
+        const starElements = document.querySelectorAll('.star');
+        starElements.forEach((star, index) => {
+            if (index < stars) {
+                star.classList.add('checked');
+            } else {
+                star.classList.remove('checked');
+            }
+        });
+        document.getElementById('ratingDisplay').innerText = `Rating: ${stars} star${stars > 1 ? 's' : ''}`; // Display the rating
+    }
+</script>
+
+</body>
+</html>
