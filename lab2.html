@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+       #sidebar {
+            width: 250px;
+            background-color: black;
+            padding: 10px;
+            position: fixed;
+            left: -220px; /* Hide sidebar initially */
+            transition: left 0.3s; /* Animation */
+        }
+        #sidebar.show {
+            left: 0; /* Show sidebar */
+        }
+        #sidebar a, #sidebar button {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        #toggleButton {
+            margin-left: 220px;
+            margin-top: 90px;     
+        }
+        #timer {
+            font-size: 48px;
+            color: lightgreen;
+        }
+        #codeContainer {
+            position: relative;
+            width: 80%;
+            margin-top: 20px;
+        }
+        #codeInput {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            caret-color: transparent; /* Hide the caret */
+        }
+        #codeOutput {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f7f7f7;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: monospace;
+            min-height: 150px;
+            overflow: auto;
+        }
+        .keyword {
+            color: blue;
+            font-weight: bold;
+        }
+        /* Modal Styles */
+        #modal, #submitModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        #modalContent, #submitModalContent {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        #test-code{
+           
+            position: relative; /* Ensure it is positioned relative to its container */
+            z-index: 10; /* Higher z-index than other elements */       
+        }
+        #alertModal {
+    display: none;
+    position: fixed;
+    z-index: 2; /* Higher than other modals */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+#alertModalContent {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">       
+        <div id="sidebar">     
+            <nav class="container">
+                <a href="lab1.html">Lab1</a>
+                <a href="login.html">Lab2</a>
+                <a href="lab3-selection.html">Lab3</a>
+                <a href="lab4.html">Lab4</a>    
+                <a href="lab5.html">Lab5</a>    
+                <a href="lab6.html">Lab6</a>    
+
+                <a href="About.html">About</a>
+                <a href="Home.html">Home</a>
+            </nav>
+            <button id="toggleButton"><img src="../Icons/menu.png" height="50px" width="50px" style="background-color: none;"></button>
+        </div>
+    </div>
+   
+    <div id="content">
+        <div id="timer">10:00</div>
+        <label for="taskSelect">Choose a task:</label>
+        <select id="taskSelect">
+            <option value="">Select a task</option>
+            <option value="sum">Write a function to calculate the sum of two numbers</option>
+            <option value="multiply">Write a function to multiply two numbers</option>
+        </select>
+        
+        <div id="codeContainer">
+            <div id="codeOutput" contenteditable="true" placeholder="Code here!" spellcheck="false"></div>
+            <textarea id="codeInput" rows="10" placeholder="Code here!" style="margin-top: 50px;"></textarea>
+        </div>  
+        <button type="button" id="test-code">Test Code</button>
+        <div class="result" id="resultMessage"></div>
+        <button type="submit" id="submit-code">Submit</button>
+        
+        <footer>
+            <p style="color: lightgreen;">&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+            <p style="color: lightgreen;">Contact: 0764753405</p>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal">
+        <div id="modalContent">
+            <span class="close">&times;</span>
+            <p>Time limit exceeded!</p>
+        </div>
+    </div>
+    <div id="submitModal">
+        <div id="submitModalContent">
+            <p id="submitMessage"></p>
+        </div>
+    </div>
+    <div id="alertModal">
+        <div id="alertModalContent">
+            <p id="alertMessage"></p>
+           
+        </div>
+    </div>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+        
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+        });
+
+        let countdownTime = 600;
+        const timerElement = document.getElementById('timer');
+        const modal = document.getElementById('modal');
+        
+        const countdown = setInterval(() => {
+            const minutes = Math.floor(countdownTime / 60);
+            const seconds = countdownTime % 60;
+            timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            if (countdownTime <= 0) {
+                clearInterval(countdown);
+                modal.style.display = "flex"; 
+            } else {
+                countdownTime--;
+            }
+        }, 1000);
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        let isCodeCorrect = false; // Variable to track if the code is correct
+
+document.getElementById('test-code').addEventListener('click', function () {
+    const selectedTask = document.getElementById('taskSelect').value;
+    const userCode = document.getElementById('codeInput').value.trim();
+    let resultMessage = '';
+    isCodeCorrect = true; // Reset for each test
+
+    // Check if the user has entered code
+    if (!userCode) {
+        resultMessage = 'Please enter your code before testing.';
+        isCodeCorrect = false;
+    } else {
+        // Check if the required function is defined
+        if (selectedTask === 'sum' && !userCode.includes('function sum')) {
+            resultMessage = 'Please define a function named "sum".';
+            isCodeCorrect = false;
+        } else if (selectedTask === 'multiply' && !userCode.includes('function multiply')) {
+            resultMessage = 'Please define a function named "multiply".';
+            isCodeCorrect = false;
+        }
+
+        // If the function is defined, run tests
+        if (isCodeCorrect) {
+            let func;
+            try {
+                // Use new Function to create a function from user code
+                func = new Function(userCode + '\nreturn ' + (selectedTask === 'sum' ? 'sum' : 'multiply') + ';')();
+
+                // Test the function
+                const testCases = selectedTask === 'sum' 
+                    ? [
+                        { a: 3, b: 5, expected: 8 },
+                        { a: -1, b: 1, expected: 0 },
+                        { a: 0, b: 0, expected: 0 }
+                      ]
+                    : [
+                        { a: 4, b: 5, expected: 20 },
+                        { a: -3, b: 3, expected: -9 },
+                        { a: 0, b: 7, expected: 0 }
+                      ];
+
+                testCases.forEach(({ a, b, expected }) => {
+                    const result = func(a, b);
+                    if (result !== expected) {
+                        isCodeCorrect = false;
+                        resultMessage += `Test failed: ${selectedTask}(${a}, ${b}) = ${result}. Expected ${expected}.<br>`;
+                    }
+                });
+            } catch (e) {
+                resultMessage = 'Error in your code: ' + e.message;
+                isCodeCorrect = false;
+            }
+        }
+    }
+
+    // Final message based on correctness
+    if (isCodeCorrect && userCode) {
+        resultMessage = 'All tests passed!';
+    }
+
+    document.getElementById('resultMessage').innerHTML = resultMessage;
+    document.getElementById('resultMessage').className = isCodeCorrect ? 'result correct' : 'result incorrect';
+});
+
+         // Code highlighting functionality
+         const keywords = ['function', 'var', 'let', 'const', 'if', 'else', 'return','int','double','float','}','{'];
+        const codeInput = document.getElementById('codeInput');
+        const codeOutput = document.getElementById('codeOutput');
+
+        codeOutput.addEventListener('input', function () {
+            const code = this.innerText;
+            codeInput.value = code; // Sync hidden textarea with the contenteditable div
+            const highlightedCode = highlightKeywords(code);
+            this.innerHTML = highlightedCode;
+            placeCaretAtEnd(this);
+        });
+
+        function highlightKeywords(code) {
+            const regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
+            return code.replace(regex, '<span class="keyword">$1</span>');
+        }
+
+        function placeCaretAtEnd(el) {
+            el.focus();
+            const range = document.createRange();
+            range.selectNodeContents(el);
+            range.collapse(false);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+
+        document.getElementById('submit-code').addEventListener('click', function () {
+    const userCode = document.getElementById('codeInput').value.trim();
+    const selectedTask = document.getElementById('taskSelect').value; // Get the selected task
+    
+    if (!userCode) {
+        document.getElementById('submitMessage').innerText = 'Please enter your code before submitting.';
+    } else if (!selectedTask) {
+        document.getElementById('submitMessage').innerText = 'Please select a task before submitting.';
+    } else {
+        document.getElementById('submitMessage').innerText = 'Your code for the task "' + selectedTask + '" has been submitted successfully!';
+    }
+    
+    // Show the submit modal
+    document.getElementById('submitModal').style.display = "flex";
+    
+    
+    window.onclick = function(event) {
+    const submitModal = document.getElementById('submitModal');
+    const modalContent = document.getElementById('submitModalContent');
+    if (event.target === submitModal) {
+        submitModal.style.display = "none"; // Hide submission modal       
+    }
+};
+setTimeout(function() {
+            document.getElementById('submitModal').style.display = "none"; // Hide submission modal
+            const targetPage = isCodeCorrect ? '100.html' : '0.html'; // Redirect based on correctness
+            window.location.href = targetPage;
+        }, 3000); // Redirect after 3 seconds
+    });
+
+
+    
+
+window.onclick = function(event) {
+    if (event.target == alertModal) {
+        alertModal.style.display = "none"; 
+    }
+}
+
+    </script>
+    </body>
+    </html>
+    
+    
