@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index2.css">
+    <style>
+#sidebar {
+    width: 250px;
+    background-color: black;
+    padding: 10px;
+    position: fixed;
+    left: -220px; 
+    transition: left 0.3s; 
+}
+#sidebar.show {
+    left: 0; /* Show sidebar */
+}
+#sidebar a, #sidebar button {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+#sidebar #sidebarToggle {
+    margin-bottom: 10px; 
+}  
+#toggleButton {
+    margin-left: 220px;
+    cursor: pointer;
+    margin-top: 90px;            
+}   
+/* Tabs for Project, Design, Implement */
+.tabs {
+    display: flex;
+    background-color: #333;
+    padding: 10px;
+    justify-content: space-around;
+    font-size: 18px;
+    flex-wrap: nowrap; /* Prevent the tab buttons from wrapping */
+    overflow: hidden;  /* Prevent overflowing of tab buttons */
+    white-space: nowrap; /* Prevent tab buttons from shrinking */
+}
+
+.tab {
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Prevent the tab label text from wrapping */
+}
+
+.tab:hover {
+    background-color: #555;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #f4f4f4;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 20px;
+    max-height: 500px; /* Set a max height to prevent excessive expansion */
+    overflow-y: auto;  /* Enable scrolling if content exceeds max height */
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Content wrapper for tabs and lab content */
+.content-wrapper {
+    display: flex;
+    padding: 20px;
+    margin-left: 220px; /* Adjusted for sidebar */
+    gap: 20px; /* Adds space between the vertical tab container and the content */
+    flex-grow: 1; /* Ensure content wrapper expands to fill available space */
+}
+
+/* Vertical Tabs (Lab Tabs) for the left side */
+.vertical-tabs-container {
+    width: 200px;
+    background-color: #f3f3f3;
+    padding: 10px;
+    border-radius: 5px;
+    height: 100%; /* Ensure the container takes full height */
+    overflow-y: auto; /* Allow vertical scrolling if content exceeds height */
+    flex-shrink: 0; /* Prevent shrinking of the vertical tabs container */
+}
+
+.vertical-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-tab {
+    padding: 15px;
+    cursor: pointer;
+    background-color: black;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    flex-shrink: 0; /* Prevent the lab tab buttons from shrinking */
+}
+
+.vertical-tab:hover {
+    background-color: #bbb;
+}
+
+/* Content Area */
+.lab-content-area {
+    margin-left: 0;
+    flex-grow: 1; /* Ensure content area grows to take up available space */
+    padding: 20px;
+    word-wrap: break-word; /* Ensure text breaks correctly within the container */
+    white-space: normal; /* Allow the text to wrap naturally */
+    max-height: 500px; /* Set a max-height to control the area */
+    overflow-y: auto;  /* Enable scrolling if content exceeds max height */
+    background-color: #f4f4f4; /* Light background for content */
+    border-radius: 10px; /* Rounded corners for the content area */
+    box-sizing: border-box; /* Ensures padding is included in width/height calculation */
+}
+
+.lab-content-area p {
+    margin-bottom: 15px; /* Spacing between paragraphs */
+}
+
+/* Image styling */
+.lab-content-area img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Ensure no overflow on the sidebar and content */
+#sidebar, .content-wrapper {
+    overflow: hidden; /* Prevent sidebar and content from overflowing */
+}
+
+/* Make sure the content is accessible and scrollable */
+.tabs, .vertical-tabs-container {
+    overflow-y: auto;
+    max-height: 100vh; /* Ensure vertical tabs and tabs container fit within the viewport */
+}
+
+/* Ensure content in the tabs has room and does not affect layout */
+.tab-content {
+    padding: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">       
+        <div id="sidebar">     
+            <nav class="container">
+                <a href="lab1.html">Lab1</a>
+                <a href="login.html">Lab2</a>
+                <a href="lab3-selection.html">Lab3</a>
+                <a href="lab4.html">Lab4</a>    
+                <a href="lab5.html">Lab5</a>    
+                <a href="lab6.html">Lab6</a>    
+                <a href="RequirementAndImplement.html"></a>
+                <a href="About.html">About</a>
+                <a href="Home.html">Home</a>
+            </nav>
+            <button id="toggleButton"><img src="menu.png" height="50px" width="50px" style="background-color: none;"></button>
+        </div>
+
+        <div id="content">
+            <!-- Tabs for Project, Design, Implement -->
+            <div class="tabs">
+                <button class="tab" onclick="showMainTab('project')">Project</button>
+                <button class="tab" onclick="showMainTab('design')">Design</button>
+                <button class="tab" onclick="showMainTab('implement')">Implement</button>
+            </div>
+            
+            <!-- Tab Content for Project -->
+            <div id="project" class="tab-content">
+                <div class="content-wrapper">
+                    <!-- Vertical Tabs for Labs inside Project -->
+                    <div class="vertical-tabs-container">
+                        <div class="vertical-tab" onclick="loadLabContent(1, 'project')">Lab 1</div>
+                        <div class="vertical-tab" onclick="loadLabContent(2, 'project')">Lab 2</div>
+                        <div class="vertical-tab" onclick="loadLabContent(3, 'project')">Lab 3</div>
+                        <div class="vertical-tab" onclick="loadLabContent(4, 'project')">Lab 4</div>
+                        <div class="vertical-tab" onclick="loadLabContent(5, 'project')">Lab 5</div>
+                        <div class="vertical-tab" onclick="loadLabContent(6, 'project')">Lab 6</div>
+                    </div>
+                    <!-- Content Area for Labs inside Project -->
+                    <div id="projectContent" class="lab-content-area">
+                        <h3>Project - Lab 1</h3>
+                        <p>This is the content for the Project tab for Lab 1.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content for Design -->
+            <div id="design" class="tab-content">
+                <div class="content-wrapper">
+                    <!-- Vertical Tabs for Labs inside Design -->
+                    <div class="vertical-tabs-container">
+                        <div class="vertical-tab" onclick="loadLabContent(1, 'design')">Lab 1</div>
+                        <div class="vertical-tab" onclick="loadLabContent(2, 'design')">Lab 2</div>
+                        <div class="vertical-tab" onclick="loadLabContent(3, 'design')">Lab 3</div>
+                        <div class="vertical-tab" onclick="loadLabContent(4, 'design')">Lab 4</div>
+                        <div class="vertical-tab" onclick="loadLabContent(5, 'design')">Lab 5</div>
+                        <div class="vertical-tab" onclick="loadLabContent(6, 'design')">Lab 6</div>
+                    </div>
+                    <!-- Content Area for Labs inside Design -->
+                    <div id="designContent" class="lab-content-area">
+                        <!-- Images for Design Labs -->
+                        <img id="designLabImage" src="lab1-image.jpg" alt="Lab 1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content for Implement -->
+            <div id="implement" class="tab-content">
+                <div class="content-wrapper">
+                    <!-- Vertical Tabs for Labs inside Implement -->
+                    <div class="vertical-tabs-container">
+                        <div class="vertical-tab" onclick="loadLabContent(1, 'implement')">Lab 1</div>
+                        <div class="vertical-tab" onclick="loadLabContent(2, 'implement')">Lab 2</div>
+                        <div class="vertical-tab" onclick="loadLabContent(3, 'implement')">Lab 3</div>
+                        <div class="vertical-tab" onclick="loadLabContent(4, 'implement')">Lab 4</div>
+                        <div class="vertical-tab" onclick="loadLabContent(5, 'implement')">Lab 5</div>
+                        <div class="vertical-tab" onclick="loadLabContent(6, 'implement')">Lab 6</div>
+                    </div>
+                    <!-- Content Area for Labs inside Implement -->
+                    <div id="implementContent" class="lab-content-area">
+                        <!-- Images for Implement Labs -->
+                        <img id="implementLabImage" src="lab1-image.jpg" alt="Lab 1">
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <p>&copy; 2024 Le Dang Tuan Phat. All Rights Reserved.</p>
+                <p>Contact: 0764753405</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+
+        // Open and close sidebar
+        function toggleSidebar() {
+            sidebar.classList.toggle('show');
+        }
+
+        toggleButton.addEventListener('click', toggleSidebar);
+
+        // Main Tab functionality
+        function showMainTab(tabName) {
+            // Hide all main tab contents
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show the selected main tab content
+            const activeTab = document.getElementById(tabName);
+            activeTab.classList.add('active');
+        }
+
+        function loadLabContent(labNumber, tabType) {
+    // Text content for Project (with HTML tags for line breaks, paragraphs, etc.)
+    const projectContent = {
+        1: `
+        
+        <p>This is the content for Lab 1. <br> This section covers the introduction to the project.</p>
+        <p><b>Key Points:</b> Lab 1 focuses on the basics of the project structure.</p>
+        <p><b>Requirement:</b><br>
+        Design a user interface (UI) for a course management system based on the following database table structure for a Course. Ensure the UI reflects the necessary fields and actions to create, view, and update courses.</p>
+        <p><b>UI Requirements:</b><br>
+        - This field should be auto-generated by the system, so it doesn't need to be editable by the user. Display this value when viewing or editing a course.<br>
+        - Create an input field that allows the user to enter the course name. This field should be required and should accept up to 255 characters.<br>
+        - Include a text area for users to provide a detailed description of the course. This field can be optional but should allow longer text.<br>
+        - Display a dropdown or search functionality that allows users to select the course's instructor from the list of existing users. This field references the created_by field, which is linked to the User table.<br>
+        - Display the timestamp indicating when the course was created. This value should be automatically generated and displayed to the user, but not editable.<br>
+        - Display the last updated timestamp. This value should be automatically updated by the system whenever changes are made to the course and should not be editable by users.<br>
+        - Provide a button or form submission option to allow users to create a new course with the specified details.<br>
+        - Allow users to modify the course_name, course_description, and created_by fields while showing the auto-generated fields like course_id, created_at, and updated_at in read-only mode.<br>
+        - Include a page or modal for viewing the details of a course without editing it.<br>
+        - Optionally, provide a button to delete a course, ensuring that confirmation prompts are in place before deletion.<br>
+        - The UI should be intuitive, with clear labels and validation for required fields like course_name.</p>
+    `,
+    2: `
+            <p><b>Requirement:</b> Students should authenticate before accessing the system.</p>
+            <ul>
+                <li>Username/Email</li>
+                <li>Password</li>
+                <li>Login button</li>
+                <li>Forgot Password link</li>
+            </ul>
+            <p><b>UI Requirements:</b></p>
+            <ul>
+                <li>Simple, clean, and secure login screen.</li>
+                <li>After login, students should land on a dashboard that displays available exercises to choose from.</li>
+                <li>Display exercises grouped by programming language (C, Python, Java).</li>
+                <li>Exercise title, Short description, Difficulty level (Easy/Medium/Hard), Time limit (if any), Points or grades attached (optional).</li>
+            </ul>
+            <p><b>Features:</b></p>
+            <ul>
+                <li>Allow students to filter exercises by programming language.</li>
+                <li>To search for exercises based on keywords.</li>
+                <li>Indicate whether an exercise has been completed, in progress, or not started.</li>
+                <li>Select an exercise.</li>
+                <li>Once an exercise is selected, students are taken to a coding environment to implement their solution.</li>
+            </ul>
+            <p><b>Coding Environment Features:</b></p>
+            <ul>
+                <li>Display the exercise title and description at the top.</li>
+                <li>Syntax highlighting for C, Python, Java.</li>
+                <li>Line numbers and auto-complete.</li>
+                <li>Language switcher (to select the language).</li>
+                <li>Pre-loaded template (based on the selected language).</li>
+                <li>Instructions and constraints provided for the exercise.</li>
+                <li>Display predefined test cases with expected input/output.</li>
+                <li>Allow students to create and run their own test cases (optional).</li>
+                <li>Run Code button to compile and run the code.</li>
+                <li>Clear Code button to reset the editor.</li>
+                <li>Submission button to submit the final solution for grading.</li>
+            </ul>
+            <p><b>Post-Submission:</b></p>
+            <ul>
+                <li>After submission, students should see the results of their submission.</li>
+                <li>Status (Success/Failed/Compilation Error/Time Limit Exceeded).</li>
+                <li>Output: Show actual output versus expected output for each test case.</li>
+                <li>List all test cases with input, expected output, actual output, and status (Passed/Failed).</li>
+                <li>Show score based on test cases passed.</li>
+                <li>Display performance metrics like time taken and memory used (if applicable).</li>
+                <li>Try again button to return to the code editor for improvements.</li>
+                <li>Return to dashboard button.</li>
+            </ul>
+            <p><b>Additional Features:</b></p>
+            <ul>
+                <li>Show rankings based on student performance (optional, for competitive environments).</li>
+                <li>Allow students to leave feedback on exercises or ask for help.</li>
+                <li>Provide a hint button that can be used a limited number of times.</li>
+                <li>Allow students to save their progress and return later to complete the exercise.</li>
+            </ul>
+            <p><b>Security & Design Considerations:</b></p>
+            <ul>
+                <li>Code execution should happen in isolated environments (containers or sandboxes) for security reasons.</li>
+                <li>Limit execution time to prevent infinite loops.</li>
+                <li>Store previous attempts so students can review their submissions.</li>
+                <li>Each screen should have a simple design with minimal distractions.</li>
+                <li>Ensure the system is mobile-friendly so students can work from any device.</li>
+                <li>Clearly communicate syntax and runtime errors to students.</li>
+            </ul>`,
+        3: `Project content for Lab 3.<br><p>This section discusses the implementation of the first version of the project.</p><p><b>Key Considerations:</b> Make sure to follow the instructions carefully to avoid errors.</p>`,
+        4: `Project content for Lab 4.<br><p>This section covers debugging and testing techniques for your project.</p><p><u>Tip:</u> Always test your project thoroughly.</p>`,
+        5: `Project content for Lab 5.<br><p>This section focuses on the integration of various project components.</p><p><mark>Note:</mark> Integration is a critical step, so ensure all parts work well together.</p>`,
+        6: `Project content for Lab 6.<br><p>This section covers the final presentation and submission of your project.</p><p><b>Reminder:</b> Ensure everything works as expected before submitting!</p>`
+    };
+
+    const designContent = {
+        1: ["lab1-img.png"],
+        2: ["lab2-img.png"],
+        3: ["lab3-img.png"],
+        4: ["lab4-img1.png","lab4-img2.png","lab4-img3.png","lab4-img4.png"],
+        5: ["lab5-img1.png","lab5-img2.png","lab5-img3.png","lab5-img4.png","lab5-img5.png"],
+        6: ["lab6-img1.png","lab6-img2.png","lab6-img3.png","lab6-img4.png"]
+    };
+
+    const implementContent = {
+        1: ["lab1-implement1.png"],
+        2: ["lab2-implement1.png", "lab2-implement2.png"],
+        3: ["lab3-implement1.png", "lab3-implement2.png",,"lab3-implement3.png"],
+        4: ["lab4-implement1.png"],
+        5: ["lab5-implement1.png", "lab5-implement2.png"],
+        6: ["lab6-implement1.png", "lab6-implement2.png","lab6-implement3.png"]
+    };
+
+    // Update the content based on the tab type and selected lab
+    if (tabType === 'project') {
+        // Insert project content with the appropriate HTML for line breaks and paragraphs
+        document.getElementById("projectContent").innerHTML = `<h3>Project - Lab ${labNumber}</h3><p>${projectContent[labNumber]}</p>`;
+    } else if (tabType === 'design') {
+        // Loop through the images for design content and display them
+        let imagesHTML = `<h3>Design - Lab ${labNumber}</h3>`;
+        designContent[labNumber].forEach(image => {
+            imagesHTML += `<img src="${image}" alt="Lab ${labNumber}" class="designLabImage">`;
+        });
+        document.getElementById("designContent").innerHTML = imagesHTML;
+    } else if (tabType === 'implement') {
+        // Loop through the images for implement content and display them
+        let imagesHTML = `<h3>Implement - Lab ${labNumber}</h3>`;
+        implementContent[labNumber].forEach(image => {
+            imagesHTML += `<img src="${image}" alt="Lab ${labNumber}" class="implementLabImage">`;
+        });
+        document.getElementById("implementContent").innerHTML = imagesHTML;
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page Loaded');
+    // Show the 'Project' tab (tabName is 'project')
+    showMainTab('project');
+    
+    // Load content for Lab 1 in the 'Project' tab
+    loadLabContent(1, 'project');
+    
+    // Load content for Lab 1 in the 'Design' tab
+    loadLabContent(1, 'design');
+    
+    // Load content for Lab 1 in the 'Implement' tab
+    loadLabContent(1, 'implement');
+});
+
+    </script>
+</body>
+</html>
